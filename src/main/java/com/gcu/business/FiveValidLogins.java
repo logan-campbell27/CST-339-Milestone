@@ -11,8 +11,8 @@ public class FiveValidLogins implements SecurityServiceInterface {
 			{"Logan","pass"},
 			{"admin","admin"},
 			{"test","test"},
-			{"John","doglover101"},
-			{"Fanta","fizzy"}
+			{"root","root"},
+			{"caden","silvey"}
 		};
 		boolean success = false;
 		for(int i =0;i<validLogin.length; i++) {
