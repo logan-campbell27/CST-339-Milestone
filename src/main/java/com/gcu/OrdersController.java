@@ -19,7 +19,7 @@ import com.gcu.business.OrdersBusinessServiceInterface;
 import com.gcu.model.OrderModel;
 
 @RestController
-@RequestMapping("/api/v1/orders")
+@RequestMapping("/orders")
 public class OrdersController {
 	
 	@Autowired
