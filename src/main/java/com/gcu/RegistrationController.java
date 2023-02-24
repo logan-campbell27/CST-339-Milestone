@@ -14,12 +14,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gcu.business.OrdersBusinessServiceInterface;
 import com.gcu.business.SecurityServiceInterface;
-import com.gcu.model.LoginModel;
 import com.gcu.model.OrderModel;
+import com.gcu.model.RegistrationModel;
 
 @Controller
-@RequestMapping("/login")
-public class LoginController{
+@RequestMapping("/register")
+public class RegistrationController{
 	
 	@Autowired
 	SecurityServiceInterface securityService;
@@ -28,36 +28,29 @@ public class LoginController{
 	
 	@GetMapping("/")
 	public String display(Model model) {
-		model.addAttribute("title", "Login Form");
-		model.addAttribute("loginModel", new LoginModel());
+		model.addAttribute("title", "Registration Form");
+		model.addAttribute("registrationModel", new RegistrationModel());
 		
-		return "login";
+		return "registration";
 	}
 	
-	@PostMapping("/doLogin")
-	public String doLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model) {
+	@PostMapping("/doRegistration")
+	public String doRegistration(@Valid RegistrationModel registrationModel, BindingResult bindingResult, Model model) {
 
 		if(bindingResult.hasErrors()) {
-			model.addAttribute("title", "Login Form");
-			return "login";
+			model.addAttribute("title", "Registration Form");
+			return "registration";
 		}
-		
-		
-		
-		if(securityService.isAuthenticated(loginModel)) {
-		model.addAttribute("model", loginModel);
-		List<OrderModel> orders = ordersService.getOrders();
-		
-		model.addAttribute("title","Products:");
-		model.addAttribute("orders",orders);
-		return "orders";
-
-		}
-		
-		
 		else{
-			return "login";
+			model.addAttribute("model", registrationModel);
+			List<OrderModel> orders = ordersService.getOrders();
+			
+			model.addAttribute("title","Products:");
+			model.addAttribute("orders",orders);
+			return "orders";
+	
 		}
+		
 		
 	}
 }
