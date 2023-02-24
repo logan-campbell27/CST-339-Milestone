@@ -15,17 +15,17 @@ public class OrdersFakeDAO implements OrdersDataAccessInterface {
 
 	public OrdersFakeDAO() {
 		orders = new ArrayList<OrderModel>();
-		orders.add(new OrderModel(0L, "001", "Sky diving", 1500.00f,1));
-		orders.add(new OrderModel(1L, "002", "Run with the bulls", 120.00f,5));
-		orders.add(new OrderModel(2L, "003", "Orbit the moon", 220000.00f,3));
-		orders.add(new OrderModel(3L, "004", "Get dinner out", 15.00f,1));
-		orders.add(new OrderModel(4L, "005", "Go to the pool", 10.00f,1));
-		orders.add(new OrderModel(5L, "006", "Zip line", 130.00f,3));
-		orders.add(new OrderModel(6L, "007", "Go backpacking", 560.00f,4));
-		orders.add(new OrderModel(7L, "008", "Go on vacation", 700.00f,6));
-		orders.add(new OrderModel(8L, "009", "Visit New York", 100.00f,10));
-		orders.add(new OrderModel(9L, "010", "Go camping", 50.00f,2));
-		orders.add(new OrderModel(10L, "011", "Travel the world", 7000.00f,1));
+		orders.add(new OrderModel(0L, "001", "Babe Ruth Home Run Ball", 150000.00f,1));
+		orders.add(new OrderModel(1L, "002", "Kobe Bryant Jersey", 500.00f,1));
+		orders.add(new OrderModel(2L, "003", "Tom Brady Retirement Dirt", 220000.00f,10));
+		orders.add(new OrderModel(3L, "004", "Julio Rodriguez Signed Jersey", 200.00f,3));
+		orders.add(new OrderModel(4L, "005", "Derek Jeter Bat", 1090.00f,5));
+		orders.add(new OrderModel(5L, "006", "Michael Jordan Bulls Jersey", 50000.00f,4));
+		orders.add(new OrderModel(6L, "007", "Pat Mahomes Helmet", 560.00f,4));
+		orders.add(new OrderModel(7L, "008", "Mariano Rivera Signed Baseball", 700.00f,6));
+		orders.add(new OrderModel(8L, "009", "Tiger Woods Signed Golf Goove", 100.00f,10));
+		orders.add(new OrderModel(9L, "010", "Joey Chesnut Shoe", 50.00f,2));
+		orders.add(new OrderModel(10L, "011", "Signed Ichio Jersey", 7000.00f,1));
 	}
 	
 	
