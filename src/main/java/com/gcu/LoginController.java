@@ -19,45 +19,50 @@ import com.gcu.model.OrderModel;
 
 @Controller
 @RequestMapping("/login")
-public class LoginController{
-	
+public class LoginController {
+
 	@Autowired
 	SecurityServiceInterface securityService;
 	@Autowired
 	private OrdersBusinessServiceInterface ordersService;
-	
+
 	@GetMapping("/")
 	public String display(Model model) {
 		model.addAttribute("title", "Login Form");
 		model.addAttribute("loginModel", new LoginModel());
-		
+
 		return "login";
 	}
-	
-	@PostMapping("/doLogin")
-	public String doLogin(@Valid LoginModel loginModel, BindingResult bindingResult, Model model) {
 
-		if(bindingResult.hasErrors()) {
+	@PostMapping("/doLogin")
+	public String doLogin(@Valid LoginModel loginModel, OrderModel orderModel, BindingResult bindingResult,
+			Model model) {
+
+		if (bindingResult.hasErrors()) {
 			model.addAttribute("title", "Login Form");
 			return "login";
 		}
-		
-		
-		
-		if(securityService.isAuthenticated(loginModel)) {
-		model.addAttribute("model", loginModel);
-		List<OrderModel> orders = ordersService.getOrders();
-		
-		model.addAttribute("title","Products:");
-		model.addAttribute("orders",orders);
-		return "orders";
+
+		if (securityService.isAuthenticated(loginModel)) {
+
+			// model.addAttribute("model", loginModel);
+			// model.addAttribute("model", orderModel);
+			// OrdersController oc = new OrdersController();
+			// model.addAttribute("title", "Products: ");
+			// model.addAttribute("orders", oc.index(model));
+			// return "orders";
+			// model.addAttribute("model", loginModel);
+			// List<OrderModel> orders = ordersService.getOrders();
+			// model.addAttribute("title", "Products:");
+			// model.addAttribute("orders", orders);
+			// return "orders";
+			return "redirect:/orders";
 
 		}
-		
-		
-		else{
+
+		else {
 			return "login";
 		}
-		
+
 	}
 }

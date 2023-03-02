@@ -2,13 +2,17 @@ package com.gcu.model;
 
 public class OrderModel {
 
-	Long id = 0L;
-	String orderNo = "";
+	private int id = 0;
+	String orderNo = "0";
 	String productName ="";
 	float price = 0;
 	int quantity = 0;
+
+	public OrderModel(){
+
+	}
 	
-	public OrderModel(Long id, String orderNo, String productName, float price, int quantity) {
+	public OrderModel(int id, String orderNo, String productName, float price, int quantity) {
 		super();
 		this.id = id;
 		this.orderNo = orderNo;
@@ -17,11 +21,11 @@ public class OrderModel {
 		this.quantity = quantity;
 	}
 
-	public Long getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 
