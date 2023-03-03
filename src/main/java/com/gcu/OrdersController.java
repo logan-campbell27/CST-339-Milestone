@@ -35,8 +35,8 @@ public class OrdersController {
 	
 	}
 
-	// @Autowired
-	// private OrdersBusinessServiceInterface ordersService;
+	@Autowired
+	private OrdersBusinessServiceInterface ordersService;
 	
 	// @GetMapping("/")
 	// public List<OrderModel> showAllOrders(Model model) {
@@ -109,6 +109,21 @@ public class OrdersController {
 		orderToEdit.setPrice(order.getPrice());
 		orderToEdit.setQuantity(order.getQuantity());
 		return "redirect:/orders";
+	}
+
+	
+	// @GetMapping("/search/{searchterm}")
+	// public List<OrderModel> searchOrders(@PathVariable(name="searchterm") String searchterm){
+	// 	return ordersService.searchOrders(searchterm);
+	// }
+	
+	// search  
+	@GetMapping("/search/{searchterm}")
+	public String searchOrder(@PathVariable(value = "productName")String searchString, Model model){
+		OrderModel order = orders.stream().filter(p -> p.getProductName() == searchString).findFirst().get();
+		model.addAttribute("orders", order);
+		return "redirect:/orders";
+
 	}
 
 	// delete 
