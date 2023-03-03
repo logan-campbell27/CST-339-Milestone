@@ -36,6 +36,12 @@ layout:decorate="layouts/defaultTemplate">
 			<h1 align="center">Products</h1>
 			<a th:href="@{orders/new}" class="btn btn-primary">Add</a>
 			<p> </p>
+			
+			<input type="text" field="${search}" />
+			<a th:href="@{orders/filter/{searchterm}(searchterm=${search})}" class="btn submit-btn">Search</a>
+
+			
+			
 			<table class="table table-striped table-hover " style="background-color: #EEEEEE;">
 				<thead>
 				  <tr>

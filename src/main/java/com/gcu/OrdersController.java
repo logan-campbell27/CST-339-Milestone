@@ -62,6 +62,21 @@ public class OrdersController {
 		return "orders";
 	}
 
+	// Search for specific order
+	@GetMapping("/filter/{searchterm}")
+	public String searchOrders(Model model, @PathVariable(name="searchterm") String searchterm){
+		List<OrderModel> filteredList = new ArrayList<OrderModel>();
+		
+		for(OrderModel o: orders){
+			if(o.getProductName().contains(searchterm)){
+				filteredList.add(o);
+			}
+		}
+		
+		model.addAttribute("orders",filteredList);
+		return "orders";
+	}
+	
 	// new order 
 	@GetMapping("/new")
 	public String newOrder(Model model){
