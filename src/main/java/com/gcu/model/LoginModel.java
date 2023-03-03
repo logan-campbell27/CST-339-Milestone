@@ -10,7 +10,10 @@ public class LoginModel {
 	@NotNull(message="Password is a required field")
 	@Size(min=1, max=32, message="Password must be between 1 and 32 characters")
 	private String password;
-	
+	public LoginModel(){
+		this.username = "";
+		this.password = "";
+	}
 	public String getUsername() {
 		return username;
 	}
