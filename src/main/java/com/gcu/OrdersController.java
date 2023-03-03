@@ -117,14 +117,6 @@ public class OrdersController {
 	// 	return ordersService.searchOrders(searchterm);
 	// }
 	
-	// search  
-	@GetMapping("/search/{searchterm}")
-	public String searchOrder(@PathVariable(value = "productName")String searchString, Model model){
-		OrderModel order = orders.stream().filter(p -> p.getProductName() == searchString).findFirst().get();
-		model.addAttribute("orders", order);
-		return "redirect:/orders";
-
-	}
 
 	// delete 
 	@GetMapping("/delete/{id}")
