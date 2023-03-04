@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import com.gcu.business.OrdersBusinessServiceInterface;
 import com.gcu.model.OrderModel;
 
@@ -55,20 +57,20 @@ public class OrdersController {
 	
 	/// start of milestone 3
 
-	@GetMapping
+	@GetMapping("/")
 	public String index(Model model){
 		// List<OrderModel> orders = ordersService.getOrders();
 		model.addAttribute("orders", orders);
 		return "orders";
 	}
 
-	// Search for specific order
-	@GetMapping("/filter/{searchterm}")
-	public String searchOrders(Model model, @PathVariable(name="searchterm") String searchterm){
+	@GetMapping("/{search}")
+	public String SearchForOrder(@RequestParam(name="search", required=false) String search, Model model){
+
 		List<OrderModel> filteredList = new ArrayList<OrderModel>();
 		
 		for(OrderModel o: orders){
-			if(o.getProductName().contains(searchterm)){
+			if(o.getProductName().contains(search)){
 				filteredList.add(o);
 			}
 		}
@@ -76,7 +78,30 @@ public class OrdersController {
 		model.addAttribute("orders",filteredList);
 		return "orders";
 	}
-	
+
+	/** 
+	// Search for specific order
+	@GetMapping("/filter")
+	public String searchOrders(Model model){
+		model.addAttribute("SearchTerm", new SearchModel());
+		return "filter";
+	}
+
+	@PostMapping("/processFilter")
+	public String processEdit(String s, Model model){
+		List<OrderModel> filteredList = new ArrayList<OrderModel>();
+		
+		for(OrderModel o: orders){
+			if(o.getProductName().contains(s)){
+				filteredList.add(o);
+			}
+		}
+		
+		model.addAttribute("orders",filteredList);
+		return "filteredOrders";
+	}
+	**/
+
 	// new order 
 	@GetMapping("/new")
 	public String newOrder(Model model){
