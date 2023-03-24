@@ -100,13 +100,13 @@ public class OrdersController {
 	@PostMapping("/processNew")
 	public String processNew(OrderModel order){
 		ordersDAO.addOne(order);
-		return "redirect:/orders";
+		return "redirect:/orders/";
 	}
 
 	// edit 
 	@GetMapping("/edit/{id}")
 	public String editOrder(@PathVariable(value="id") Integer id, Model model){
-		
+		model.addAttribute("order", ordersDAO.getById(id));
 		return "editOrder";
 	}
 
@@ -115,7 +115,7 @@ public class OrdersController {
 	public String processEdit(OrderModel order){
 		ordersDAO.updateOne(order.getId(), order);
 		
-		return "redirect:/orders";
+		return "redirect:/orders/";
 	}
 
 	
@@ -129,7 +129,7 @@ public class OrdersController {
 	@GetMapping("/delete/{id}")
 	public String deleteOrder(@PathVariable(value = "id")Integer id, Model model){
 		ordersDAO.deleteOne(id);
-		return "redirect:/orders";
+		return "redirect:/orders/";
 
 	}
 

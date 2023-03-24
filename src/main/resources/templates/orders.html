@@ -71,8 +71,8 @@ layout:decorate="layouts/defaultTemplate">
 
 						<td>
 							<!-- create the buttons to update and delete the orders  -->
-							<a th:href="@{orders/edit/{id}(id=${order.id})}" class="btn btn-primary">Edit</a>
-							<a th:href="@{orders/delete/{id}(id=${order.id})}" class="btn btn-danger">Delete</a>
+							<a th:href="@{edit/{id}(id=${order.id})}" class="btn btn-primary">Edit</a>
+							<a th:href="@{delete/{id}(id=${order.id})}" class="btn btn-danger">Delete</a>
 
 						</td>						
 					</tr>
