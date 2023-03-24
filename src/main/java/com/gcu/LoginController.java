@@ -23,9 +23,7 @@ public class LoginController {
 
 	@Autowired
 	SecurityServiceInterface securityService;
-	@Autowired
-	private OrdersBusinessServiceInterface ordersService;
-
+	
 	@GetMapping("/")
 	public String display(Model model) {
 		model.addAttribute("title", "Login Form");

@@ -11,7 +11,7 @@ public class OrdersBusinessService implements OrdersBusinessServiceInterface{
 
 
 	@Autowired
-	OrdersDataAccessInterface ordersDAO;
+	OrdersDataAccessInterface<OrderModel> ordersDAO;
 	
 	@Override
 	public void test() {
@@ -51,7 +51,7 @@ public class OrdersBusinessService implements OrdersBusinessServiceInterface{
 	}
 
 	@Override
-	public int addOne(OrderModel newOrder) {
+	public long addOne(OrderModel newOrder) {
 		// TODO Auto-generated method stub
 		return ordersDAO.addOne(newOrder);
 	}

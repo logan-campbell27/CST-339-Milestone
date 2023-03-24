@@ -4,11 +4,11 @@ import java.util.List;
 
 import com.gcu.model.OrderModel;
 
-public interface OrdersDataAccessInterface {
-	public OrderModel getById(int id);
-	public List<OrderModel> getOrders();
-	public List<OrderModel> searchOrders(String searchTerm);
-	public int addOne(OrderModel newOrder);
+public interface OrdersDataAccessInterface<T> {
+	public T getById(long id);
+	public List<T> getOrders();
+	public List<T> searchOrders(String searchTerm);
+	public long addOne(T newOrder);
 	public boolean deleteOne(long id);
-	public OrderModel updateOne(long idToUpdate, OrderModel updateOrder);
+	public T updateOne(long idToUpdate, T updateOrder);
 }

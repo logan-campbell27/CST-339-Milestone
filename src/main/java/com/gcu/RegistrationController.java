@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.gcu.business.OrdersBusinessServiceInterface;
 import com.gcu.business.SecurityServiceInterface;
+import com.gcu.data.OrdersDataService;
 import com.gcu.model.OrderModel;
 import com.gcu.model.LoginModel;
 import com.gcu.model.RegistrationModel;
@@ -25,7 +26,7 @@ public class RegistrationController{
 	@Autowired
 	SecurityServiceInterface securityService;
 	@Autowired
-	private OrdersBusinessServiceInterface ordersService;
+	private OrdersDataService ordersService;
 	
 	@GetMapping("/")
 	public String display(Model model) {
