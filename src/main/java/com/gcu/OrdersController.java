@@ -108,10 +108,9 @@ public class OrdersController {
 	}
 
 	// process edit 
-	@PostMapping("/processEdit")
+	@PostMapping("edit/processEdit")
 	public String processEdit(OrderModel order){
 		ordersDAO.updateOne(order.getId(), order);
-		
 		return "redirect:/orders/";
 	}
 
