@@ -27,5 +27,17 @@ public class RegistrationBusinessService implements RegistrationBusinessServiceI
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'destroy'");
     }
+
+    @Override
+    public int findOne(RegistrationModel regModel) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'findOne'");
+    }
+
+    @Override
+    public int UpdateRegistrationModel(RegistrationModel updateUser) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'UpdateRegistrationModel'");
+    }
     
 }

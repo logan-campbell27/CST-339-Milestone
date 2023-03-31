@@ -7,4 +7,6 @@ public interface RegistrationBusinessServiceInterface {
     public void init();
     public void destroy();
     public int addOne(RegistrationModel newUser);
+    public int findOne(RegistrationModel regModel);
+    public int UpdateRegistrationModel(RegistrationModel updateUser);
 }
