@@ -2,8 +2,6 @@ package com.gcu.data;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-
 import javax.sql.DataSource;
 
 import org.modelmapper.ModelMapper;
@@ -22,6 +20,7 @@ public class OrdersDataService implements OrdersDataAccessInterface<OrderModel> 
 	@Autowired
 	private OrdersRepositoryInterface ordersRepository;
 	
+	@Autowired
 	private JdbcTemplate jdbcTemplateObject;
 	
 	ModelMapper modelMapper = new ModelMapper();

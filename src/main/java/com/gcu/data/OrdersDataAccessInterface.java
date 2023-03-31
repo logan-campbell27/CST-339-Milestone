@@ -2,8 +2,6 @@ package com.gcu.data;
 
 import java.util.List;
 
-import com.gcu.model.OrderModel;
-
 public interface OrdersDataAccessInterface<T> {
 	public T getById(long id);
 	public List<T> getOrders();
