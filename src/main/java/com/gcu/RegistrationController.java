@@ -5,15 +5,15 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 // import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
 import com.gcu.business.SecurityServiceInterface;
 import com.gcu.data.OrdersDataService;
 import com.gcu.data.RegistrationDataService;
@@ -21,7 +21,7 @@ import com.gcu.model.OrderModel;
 import com.gcu.model.LoginModel;
 import com.gcu.model.RegistrationModel;
 
-@RestController
+@Controller
 @RequestMapping("/register")
 public class RegistrationController{
 	
@@ -41,18 +41,15 @@ public class RegistrationController{
 		return "registration";
 	}
 
-	@PostMapping("/add")
-    public RegistrationModel addUser(@RequestBody RegistrationModel addUser){
-        regService.addOne(addUser);
-		return addUser;
-    }
-	
+	// add user to database and send to Orders Page
 	@PostMapping("/doRegistration")
-	public String doRegistration(@Valid RegistrationModel registrationModel, BindingResult bindingResult, Model model) {
+	public String doRegistration(@Valid @ModelAttribute("registrationModel") RegistrationModel registrationModel, BindingResult bindingResult, Model model) {
+
+		regService.addOne(registrationModel);
+
 		LoginModel attemptReg = new LoginModel();
 		attemptReg.setUsername(registrationModel.getUsername());
 		attemptReg.setPassword(registrationModel.getPassword());
-
 
 
 		if(bindingResult.hasErrors()) {
@@ -73,4 +70,5 @@ public class RegistrationController{
 		}
 		
 	}
+	
 }

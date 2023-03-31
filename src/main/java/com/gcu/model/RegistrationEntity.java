@@ -3,16 +3,13 @@ package com.gcu.model;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
-import groovyjarjarantlr4.v4.runtime.misc.NotNull;
-
 @Table("users")
 public class RegistrationEntity {
     
-    @NotNull
+    
     @Column("USERNAME")
     String username;
 
-    @NotNull
     @Column("PASSWORD")
     String password;
 

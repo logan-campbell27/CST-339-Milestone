@@ -59,7 +59,7 @@ layout:decorate="layouts/defaultTemplate">
 	</head>
 	<body>
 		<div layout:fragment="content" align="center">
-		<form action="#" th:action="@{doRegistration}" th:object="${registrationModel}" method="post">
+		<form class="form" action="#" th:action="@{doRegistration}" th:object="${registrationModel}" method="post">
 			<div class="imgcontainer">
 				<img th:src="@{/img/login_avatar.png}" alt="Avatar" class="avatar"/>
 			</div>
@@ -74,16 +74,16 @@ layout:decorate="layouts/defaultTemplate">
 				<div class="fieldError">
 					<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</p>
 				</div>
-				<button type="submit">Register User</button>
+				<button type="submit" value="save">Register User</button>
 			</div>
 			
 			<div class="container" style="background-color: #ddd;">
 				<button type="button" class="cancelbtn">Cancel</button>
 			</div>
-			<!--<div th:if="${#fields.hasErrors('*')}">List of Errors</div>
+			<!-- <div th:if="${#fields.hasErrors('*')}">List of Errors</div>
 			<div th:each="err : ${fields.errors('*')}">
 				<span th:text="${err}" class="fieldError"></span>
-			</div>-->
+			</div> -->
 		</form>		
 		</div>
 		
