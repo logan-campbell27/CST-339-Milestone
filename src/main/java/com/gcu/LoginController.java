@@ -51,7 +51,7 @@ public class LoginController {
 			// model.addAttribute("title", "Products:");
 			// model.addAttribute("orders", orders);
 			// return "orders";
-			return "redirect:/orders";
+			return "redirect:/orders/";
 
 		}
 
