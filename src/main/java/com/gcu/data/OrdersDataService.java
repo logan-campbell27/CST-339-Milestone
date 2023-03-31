@@ -70,6 +70,7 @@ public class OrdersDataService implements OrdersDataAccessInterface<OrderModel> 
 	public long addOne(OrderModel newOrder) {
 		// TODO Auto-generated method stub
 		OrderEntity entity = modelMapper.map(newOrder, OrderEntity.class);
+		entity.setId(null);
 		OrderEntity result = ordersRepository.save(entity);
 		if(result == null) {
 			return  0;
