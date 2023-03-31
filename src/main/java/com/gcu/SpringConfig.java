@@ -12,6 +12,8 @@ import org.springframework.web.context.annotation.RequestScope;
 import com.gcu.business.FiveValidLogins;
 import com.gcu.business.OrdersBusinessService;
 import com.gcu.business.OrdersBusinessServiceInterface;
+import com.gcu.business.RegistrationBusinessService;
+import com.gcu.business.RegistrationBusinessServiceInterface;
 import com.gcu.business.SecurityServiceInterface;
 import com.gcu.data.OrdersDataService;
 import com.gcu.data.OrdersDataAccessInterface;
@@ -19,11 +21,19 @@ import com.gcu.model.OrderModel;
 
 @Configuration
 public class SpringConfig {
+	
 	@Bean(name="OrdersBusinessService", initMethod = "init", destroyMethod = "destroy")
 	@Scope(value="prototype", proxyMode=ScopedProxyMode.TARGET_CLASS)
 	public OrdersBusinessServiceInterface getOrdersBusiness() {
 		return new OrdersBusinessService();
 	}
+
+	@Bean(name="RegistrationBusinessService", initMethod = "init", destroyMethod = "destroy")
+	@Scope(value="prototype", proxyMode=ScopedProxyMode.TARGET_CLASS)
+	public RegistrationBusinessServiceInterface getRegistrationBusiness() {
+		return new RegistrationBusinessService();
+	}
+
 	
 	@Autowired
 	private DataSource dataSource;
