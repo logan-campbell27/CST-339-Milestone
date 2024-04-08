@@ -21,7 +21,6 @@ public class OrdersController {
 	@Autowired
 	private OrdersDataService ordersDAO;
 
-	@Autowired
 	public OrdersController(OrdersDataService s){
 		super();
 		this.ordersDAO = s;
